@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+branch="$(git symbolic-ref --short -q HEAD)"
+
+if [ "$branch" = "main" ] | [ "$branch" = "master" ]; then
+  echo "You can't commit directly to main or master branch"
+  exit 1
+fi
+
+npx lint-staged
+
+#module.exports = {
+#  extends: ['@commitlint/config-conventional'],
+#  rules: {
+#    'type-enum': [
+#      2,
+#      'always',
+#      [
+#        'feat', // Añadir una nueva funcionalidad
+#        'fix', // Corregir un bug
+#        'docs', // Cambios en la documentación
+#        'style', // Cambios que no afectan al código (espacios en blanco, formato, punto y coma, etc)
+#        'refactor', // Cambios que no corrigen un bug ni añaden una funcionalidad
+#        'perf', // Cambios que mejoran el rendimiento
+#        'test', // Cambios en los test
+#        'chore', // Otros cambios que no modifican el código de la aplicación ni de los test
+#        'revert', // Revertir un commit
+#      ],
+#    ],
+#    'subject-case': [0, 'never'],
+#  },
+#};

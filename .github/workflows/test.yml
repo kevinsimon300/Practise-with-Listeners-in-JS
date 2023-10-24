@@ -1,0 +1,25 @@
+name: Testing
+
+on: push
+
+jobs:
+  test:
+    name: Tests passes
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇ Git checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: 💾 Install modules
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: 🧪 Testing
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          start: npm run dev
+          wait-on: 'http://localhost:3000'

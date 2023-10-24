@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruleta La Salle</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+  <h1>Ruleta La Salle</h1>
+
+  <p>Birutas totales: <span id="chips">0</span></p>
+
+  <label for="add-chips">Añadir birutas: </label>
+  <input type="number" id="add-chips">
+  <button id="add-chips-btn">+</button>
+
+  <p>Haga su apuesta:</p>
+  <label for="bet">Cantidad a apostar: </label>
+  <input type="number" id="bet">
+  <select id="bet-type">
+    <option value="even">Par</option>
+    <option value="odd">Impar</option>
+  </select>
+  <label for="bet-number">Número a apostar (0-36): </label>
+  <input type="number" id="bet-number">
+  <button id="bet-btn">Apostar</button>
+  <label for="result">Resultado</label>
+  <input id="result" name="result" style="width: 50%;">
+  <img id="gif-ruleta" src="./images/casino-gamble.gif" alt="GIF" />
+  <script type="module" src="./js/main.js" defer></script>
+</body>
+
+</html>
